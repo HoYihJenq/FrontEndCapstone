@@ -1,7 +1,13 @@
-import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import MainSection from "./components/MainSection";
 
-function App() {
-  return <div>Hello</div>;
+export default function App() {
+  return (
+    <>
+      <Header />
+      <MainSection />
+      <Footer />
+    </>
+  );
 }
-
-export default App;
