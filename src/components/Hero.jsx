@@ -1,7 +1,9 @@
 const Hero = () => {
   return (
     <section className=" bg-violet-300 min-h-screen">
-      <h1>Little Lemon</h1>
+      <h1 className="text-center py-10 text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold text-violet-900">
+        Little Lemon
+      </h1>
       <h3>Chicago</h3>
       <p>
         We are a family owned Mediterranean restaurant, focused on traditional

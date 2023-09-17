@@ -1,13 +1,14 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import MainSection from "./components/MainSection";
+import Home from "./components/Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Booking from "./pages/Booking";
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <MainSection />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/booking" element={<Booking />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
