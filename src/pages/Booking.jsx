@@ -109,7 +109,7 @@ const Booking = () => {
                 name="occasion"
                 as="select"
                 id="occasion"
-                className=" w-96 pl-3 rounded rounded"
+                className=" w-96 pl-3 rounded"
               >
                 <option>Please choose an occasion</option>
                 <option value="birthday">Birthday</option>
