@@ -1,13 +1,17 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
-import { BasicSchema } from "../assets/Schema/BasicSchema";
+import { BasicSchema } from "../Schema/BasicSchema";
+import { useState } from "react";
+
 const today = new Date().toISOString().split("T")[0];
 const Booking = () => {
+  const [success, setSuccess] = useState(false);
   return (
     <main className=" bg-yellow-300">
       <div className=" h-screen flex flex-col items-center justify-center">
         <h1 className="text-center my-10 text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold text-violet-900">
-          Bookings
+          Book Now!
         </h1>
+        {success && <h1 className="">Successfully clicked!!</h1>}
         <Formik
           initialValues={{
             name: "",
@@ -20,6 +24,7 @@ const Booking = () => {
           onSubmit={(values, { setSubmitting }) => {
             alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
+            setSuccess(true);
           }}
         >
           <Form className="bg-violet-100 shadow-md rounded-3xl px-48 py-10 mb-4 flex flex-col items-center text-violet-900 relative">
@@ -120,6 +125,7 @@ const Booking = () => {
               </div>
             </div>
             <button
+              data-testid="test-submit"
               type="submit"
               className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-lg px-10 py-2.5 text-center mr-2 mb-2 mt-10"
             >
