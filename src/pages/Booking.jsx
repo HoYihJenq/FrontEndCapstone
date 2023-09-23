@@ -1,17 +1,18 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
-import { BasicSchema } from "../Schema/BasicSchema";
-import { useState } from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik"
+import { BasicSchema } from "../Schema/BasicSchema"
+import Header from "../components/Header.jsx"
+import Footer from "../components/Footer.jsx"
 
-const today = new Date().toISOString().split("T")[0];
+const today = new Date().toISOString().split("T")[0]
 const Booking = () => {
-  const [success, setSuccess] = useState(false);
   return (
-    <main className=" bg-yellow-300">
-      <div className=" h-screen flex flex-col items-center justify-center">
-        <h1 className="text-center my-10 text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold text-violet-900">
+    <>
+      <Header />
+      <main className="bg-yellow-200 h-screen flex flex-col items-center justify-center">
+        <h1 className="text-center pb-20 text-8xl max-sm:text-[72px] max-sm:leading-[82px] font-bold text-violet-900">
           Book Now!
         </h1>
-        {success && <h1 className="">Successfully clicked!!</h1>}
+
         <Formik
           initialValues={{
             name: "",
@@ -22,22 +23,23 @@ const Booking = () => {
           }}
           validationSchema={BasicSchema}
           onSubmit={(values, { setSubmitting }) => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-            setSuccess(true);
+            alert(JSON.stringify(values, null, 2))
+            setSubmitting(false)
           }}
         >
-          <Form className="bg-violet-100 shadow-md rounded-3xl px-48 py-10 mb-4 flex flex-col items-center text-violet-900 relative">
+          <Form className="bg-violet-100 shadow-2xl rounded-3xl px-10 py-10 mb-4 flex flex-col items-center text-violet-900 relative max-w-[570px] hover:scale-125 transition-all ease-in-out duration-300 hover:shadow-indigo-500/50">
             <div className="mb-4">
               <label htmlFor="name" className="block  text-lg font-bold mb-2 ">
                 Name :
               </label>
+
               <Field
                 name="name"
                 id="name"
                 placeholder="Input name here"
-                className=" w-96 pl-3 rounded"
+                className=" w-96 pl-3 rounded border border-violet-600 focus:outline-violet-900"
               />
+
               <div className="text-red-500 text-xs italic absolute pl-3">
                 <ErrorMessage name="name" />
               </div>
@@ -53,7 +55,7 @@ const Booking = () => {
                 id="date"
                 min={today}
                 placeholder="Input date here"
-                className="w-96 pl-3 rounded"
+                className="w-96 pl-3 rounded border border-violet-600 focus:outline-violet-900"
               />
               <div className="text-red-500 text-xs italic absolute pl-3">
                 <ErrorMessage name="date" />
@@ -69,7 +71,7 @@ const Booking = () => {
                 name="time"
                 id="time"
                 placeholder="Input time here"
-                className=" w-96 pl-3 rounded"
+                className=" w-96 pl-3 rounded border border-violet-600 focus:outline-violet-900"
               >
                 <option>Select a time-slot</option>
                 <option value="17:00">17:00</option>
@@ -96,7 +98,7 @@ const Booking = () => {
                 name="numberOfGuests"
                 id="numberOfGuests"
                 placeholder="Input number of guests"
-                className=" w-96 pl-3 rounded"
+                className=" w-96 pl-3 rounded border border-violet-600 focus:outline-violet-900"
               />
               <div className="text-red-500 text-xs italic absolute pl-3">
                 <ErrorMessage name="numberOfGuests" />
@@ -114,7 +116,7 @@ const Booking = () => {
                 name="occasion"
                 as="select"
                 id="occasion"
-                className=" w-96 pl-3 rounded"
+                className=" w-96 pl-3 rounded border border-violet-600 focus:outline-violet-900"
               >
                 <option>Please choose an occasion</option>
                 <option value="birthday">Birthday</option>
@@ -133,9 +135,10 @@ const Booking = () => {
             </button>
           </Form>
         </Formik>
-      </div>
-    </main>
-  );
-};
+      </main>
+      <Footer />
+    </>
+  )
+}
 
-export default Booking;
+export default Booking

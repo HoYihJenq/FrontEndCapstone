@@ -1,7 +1,7 @@
-import About from "./About";
-import Hero from "./Hero";
-import Highlights from "./Highlights";
-import Testimonial from "./testimonial";
+import About from "./About"
+import Hero from "./Hero"
+import Highlights from "./Highlights"
+import Testimonial from "./Testimonial"
 
 const MainSection = () => {
   return (
@@ -11,7 +11,7 @@ const MainSection = () => {
       <Testimonial />
       <About />
     </main>
-  );
-};
+  )
+}
 
-export default MainSection;
+export default MainSection
